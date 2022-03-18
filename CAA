@@ -1,4 +1,21 @@
-from 
+from theblockchainapi import TheBlockchainAPIResource, SolonaNetwork 
 
 KEY_ID = "XEZIlNoY8bf3KuL"
 SECRET = "fBBVum9ADelcDBU"
+
+if __name__ == '__main__':
+    resource = TheBLockchainAPIResource(
+       api_key_id=KEY_ID,
+       api_secret_key=SECRET
+    )
+
+    secret_key = resource.generate_secret_key()
+    mint_address = '7EWJNaNyfPYMaqzdAAa4ps5kpqW95B7VHsjhw1kr18sj'
+   
+ata =  resource.derive_associated_token_account_address(
+       token_address=mint_address,
+       secret_recovery_phrase=secret_key,
+       network=SolanaNetwork.MAINNET_BETA
+
+    print(secret_key) 
+    print(ata)
